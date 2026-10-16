@@ -1,0 +1,13 @@
+.sticky-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
