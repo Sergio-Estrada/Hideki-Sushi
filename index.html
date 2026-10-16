@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hideki Sushi | Premium Gastronomic Studio</title>
+    <title>Hideki Sushi | Studio Experience</title>
 
-    <!-- Google Fonts: Space Grotesk & Inter para look moderno de estudio -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome -->
+    <!-- FontAwesome para Íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
             --bg-primary: #0a0a0a;
-            --bg-surface: #121212;
             --border-color: rgba(255, 255, 255, 0.08);
             --accent-red: #d90429;
             --accent-gold: #ffd166;
@@ -31,17 +30,14 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
+        html, body {
             background-color: var(--bg-primary);
             color: var(--text-main);
-        }
-
-        body {
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* HEADER SUPERIOR TIPO ESTUDIO */
+        /* HEADER MINIMALISTA ESTUDIO */
         header {
             position: fixed;
             top: 0;
@@ -67,11 +63,11 @@
 
         .brand-logo i {
             color: var(--accent-red);
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .brand-logo h1 {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -81,13 +77,13 @@
             list-style: none;
             display: flex;
             align-items: center;
-            gap: 35px;
+            gap: 30px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 500;
@@ -101,7 +97,7 @@
         .header-btn {
             background: var(--accent-red);
             color: #fff !important;
-            padding: 10px 22px;
+            padding: 10px 20px;
             border-radius: 2px;
             font-weight: 600 !important;
             letter-spacing: 1px;
@@ -110,22 +106,21 @@
 
         .header-btn:hover {
             background: #ef233c;
-            transform: translateY(-1px);
         }
 
-        /* SECCIONES CINEMÁTICAS PRINCIPALES */
-        .hero-panel {
-            min-height: 100vh;
+        /* SECCIONES TIPO STORYTELLING (CINEMÁTICAS) */
+        .story-section {
+            height: 100vh;
+            width: 100vw;
             position: relative;
             display: flex;
             align-items: flex-end;
-            padding: 80px 6% 80px 6%;
-            background-color: var(--bg-primary);
-            border-bottom: 1px solid var(--border-color);
+            padding: 80px 6%;
             overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .hero-media-bg {
+        .story-bg {
             position: absolute;
             top: 0;
             left: 0;
@@ -134,25 +129,25 @@
             object-fit: cover;
             z-index: 1;
             filter: brightness(0.4);
-            transform: scale(1.02);
+            transform: scale(1.05);
             transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .hero-panel:hover .hero-media-bg {
+        .story-section:hover .story-bg {
             transform: scale(1);
         }
 
-        .hero-overlay-gradient {
+        .story-gradient {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 85%);
+            background: linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.92) 85%);
             z-index: 2;
         }
 
-        .hero-content-wrapper {
+        .story-content-wrapper {
             position: relative;
             z-index: 3;
             width: 100%;
@@ -162,8 +157,8 @@
             gap: 40px;
         }
 
-        .hero-text-block max-width {
-            max-width: 700px;
+        .story-text max-width {
+            max-width: 650px;
         }
 
         .meta-tag {
@@ -176,8 +171,8 @@
             display: inline-block;
         }
 
-        .hero-title {
-            font-size: clamp(40px, 6vw, 75px);
+        .story-title {
+            font-size: clamp(38px, 5.5vw, 70px);
             line-height: 0.95;
             font-weight: 700;
             letter-spacing: -2px;
@@ -185,159 +180,149 @@
             color: #fff;
         }
 
-        .hero-title span {
+        .story-title span {
             color: var(--accent-red);
         }
 
-        .hero-desc {
-            font-size: 16px;
+        .story-desc {
+            font-size: 15px;
             color: var(--text-muted);
-            max-width: 500px;
-            line-height: 1.5;
+            max-width: 480px;
+            line-height: 1.6;
             margin-bottom: 30px;
         }
 
-        /* METADATOS LATERALES ESTILO ESTUDIO (COMO EN EL VIDEO) */
-        .specs-sidebar {
+        /* PANEL DE ESPECIFICACIONES LATERAL (COMO EN EL VIDEO) */
+        .specs-panel {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px 40px;
+            gap: 20px 35px;
             border-left: 1px solid var(--border-color);
-            padding-left: 40px;
+            padding-left: 35px;
         }
 
-        .spec-item span {
+        .spec-unit span {
             display: block;
         }
 
-        .spec-label {
-            font-size: 11px;
+        .spec-key {
+            font-size: 10px;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 4px;
         }
 
-        .spec-value {
-            font-size: 15px;
+        .spec-val {
+            font-size: 14px;
             font-weight: 600;
             color: #fff;
         }
 
-        .action-buttons {
+        .btn-group {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .btn-action {
+        .action-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
+            padding: 13px 26px;
             background: #fff;
             color: #000;
             text-decoration: none;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             border-radius: 2px;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
         }
 
-        .btn-action:hover {
+        .action-btn:hover {
             background: var(--accent-red);
             color: #fff;
         }
 
-        .btn-whatsapp-action {
+        .btn-wa {
             background: #25d366;
             color: #fff;
         }
 
-        .btn-whatsapp-action:hover {
+        .btn-wa:hover {
             background: #1eb954;
         }
 
-        /* SECCIÓN DE GRILLA DE SUCURSALES / PROYECTOS */
-        .section-container {
+        /* SECCIÓN SUCURSALES */
+        .branches-container {
             padding: 100px 6%;
-            background-color: var(--bg-surface);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 60px;
+            background-color: #0e0e0e;
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: 32px;
             letter-spacing: -1px;
             font-weight: 700;
+            margin-bottom: 40px;
         }
 
-        .grid-branches {
+        .branches-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
-        .branch-box {
+        .branch-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-color);
-            padding: 40px;
+            padding: 35px;
             border-radius: 4px;
             transition: all 0.3s ease;
-            position: relative;
         }
 
-        .branch-box:hover {
+        .branch-card:hover {
             border-color: var(--accent-red);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
         }
 
-        .branch-box h3 {
-            font-size: 22px;
+        .branch-card h3 {
+            font-size: 20px;
             color: #fff;
-            margin-bottom: 20px;
-            font-weight: 600;
+            margin-bottom: 18px;
         }
 
-        .branch-info-row {
+        .branch-row {
             display: flex;
             align-items: center;
             gap: 12px;
             color: var(--text-muted);
             font-size: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        .branch-info-row i {
+        .branch-row i {
             color: var(--accent-red);
-            width: 16px;
         }
 
-        /* FOOTER ESTUDIO */
+        /* FOOTER */
         footer {
-            padding: 40px 6%;
+            padding: 35px 6%;
             background: #050505;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .hero-content-wrapper {
+            .story-content-wrapper {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .specs-sidebar {
+            .specs-panel {
                 border-left: none;
                 padding-left: 0;
                 border-top: 1px solid var(--border-color);
@@ -350,133 +335,125 @@
             .nav-links {
                 display: none;
             }
-            .hero-panel {
-                padding-top: 120px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER DE ESTUDIO -->
+    <!-- HEADER -->
     <header>
         <a href="#inicio" class="brand-logo">
             <i class="fas fa-circle"></i>
-            <h1>Hideki <span>Sushi</span></h1>
+            <h1>Hideki <span>Studio</span></h1>
         </a>
         <ul class="nav-links">
             <li><a href="#inicio">01. Inicio</a></li>
             <li><a href="#promos">02. Promociones</a></li>
             <li><a href="#menu">03. Menú</a></li>
             <li><a href="#sucursales">04. Sucursales</a></li>
-            <li><a href="https://wa.me/526651334590" target="_blank" class="header-btn">Ordenar Directo</a></li>
+            <li><a href="https://wa.me/526651334590" target="_blank" class="header-btn">Ordenar</a></li>
         </ul>
     </header>
 
-    <!-- SECCIÓN HERO 1 (ESTILO POLIGON STUDIO) -->
-    <section id="inicio" class="hero-panel">
-        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1920&q=80" alt="Hideki Sushi" class="hero-media-bg">
-        <div class="hero-overlay-gradient"></div>
+    <!-- PANTALLA 1: HERO STORYTELLING -->
+    <section id="inicio" class="story-section">
+        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1920&q=80" alt="Sushi Master" class="story-bg">
+        <div class="story-gradient"></div>
         
-        <div class="hero-content-wrapper">
-            <div class="hero-text-block">
+        <div class="story-content-wrapper">
+            <div class="story-text">
                 <span class="meta-tag">01 / Master Roll & Artisanal Kitchen</span>
-                <h2 class="hero-title">El antojo perfecto <span>en Tecate.</span></h2>
-                <p class="hero-desc">Desarrollamos una propuesta culinaria de alta gama con rollos exclusivos, pizzas artesanales y especialidades preparadas bajo estándares de máxima calidad.</p>
-                
-                <div class="action-buttons">
-                    <a href="#menu" class="btn-action">Ver Carta</a>
-                    <a href="https://wa.me/526651334590" target="_blank" class="btn-action btn-whatsapp-action">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Directo
+                <h2 class="story-title">El antojo perfecto <span>en Tecate.</span></h2>
+                <p class="story-desc">Diseñamos una experiencia gastronómica de alta gama con rollos exclusivos, pizzas artesanales y especialidades preparadas bajo los más altos estándares.</p>
+                <div class="btn-group">
+                    <a href="#sucursales" class="action-btn">Ver Sucursales</a>
+                    <a href="https://wa.me/526651334590" target="_blank" class="action-btn btn-wa">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>
             </div>
 
-            <!-- ESPECIFICACIONES LATERALES TÉCNICAS (ESTILO VIDEO) -->
-            <div class="specs-sidebar">
-                <div class="spec-item">
-                    <span class="spec-label">Ubicación</span>
-                    <span class="spec-value">Tecate, B.C.</span>
+            <div class="specs-panel">
+                <div class="spec-unit">
+                    <span class="spec-key">Ubicación</span>
+                    <span class="spec-val">Tecate, B.C.</span>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Estatus</span>
-                    <span class="spec-value" style="color: #25d366;">Abierto Ahora</span>
+                <div class="spec-unit">
+                    <span class="spec-key">Estatus</span>
+                    <span class="spec-val" style="color: #25d366;">Abierto Ahora</span>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Servicio</span>
-                    <span class="spec-value">Domicilio / Pickup</span>
+                <div class="spec-unit">
+                    <span class="spec-key">Servicio</span>
+                    <span class="spec-val">Domicilio / Pickup</span>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Horario</span>
-                    <span class="spec-value">10:00 - 21:00 HRS</span>
+                <div class="spec-unit">
+                    <span class="spec-key">Horario</span>
+                    <span class="spec-val">10:00 - 21:00 HRS</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN PROMOCIONES -->
-    <section id="promos" class="hero-panel" style="min-height: 80vh;">
-        <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=1920&q=80" alt="Promociones" class="hero-media-bg">
-        <div class="hero-overlay-gradient"></div>
+    <!-- PANTALLA 2: PROMOCIONES -->
+    <section id="promos" class="story-section">
+        <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=1920&q=80" alt="Promos" class="story-bg">
+        <div class="story-gradient"></div>
         
-        <div class="hero-content-wrapper">
-            <div class="hero-text-block">
+        <div class="story-content-wrapper">
+            <div class="story-text">
                 <span class="meta-tag">02 / Combos Exclusivos</span>
-                <h2 class="hero-title">Promociones <span>Imperdibles.</span></h2>
-                <p class="hero-desc"><strong>Pack Familiar:</strong> 3 Rollos seleccionados por $299.<br><strong>Dúo Perfecto:</strong> 1 Rollo + 1 Pizza por $249.</p>
-                <div class="action-buttons">
-                    <a href="https://wa.me/526651334590" target="_blank" class="btn-action btn-whatsapp-action">
-                        <i class="fab fa-whatsapp"></i> Pedir Promo
+                <h2 class="story-title">Promociones <span>Imperdibles.</span></h2>
+                <p class="story-desc"><strong>Pack Familiar:</strong> 3 Rollos seleccionados por $299.<br><strong>Dúo Perfecto:</strong> 1 Rollo + 1 Pizza por $249.</p>
+                <div class="btn-group">
+                    <a href="https://wa.me/526651334590" target="_blank" class="action-btn btn-wa">
+                        <i class="fab fa-whatsapp"></i> Pedir Pack Familiar
                     </a>
                 </div>
             </div>
-            <div class="specs-sidebar">
-                <div class="spec-item">
-                    <span class="spec-label">Ahorro</span>
-                    <span class="spec-value">Hasta 30% Off</span>
+
+            <div class="specs-panel">
+                <div class="spec-unit">
+                    <span class="spec-key">Ahorro</span>
+                    <span class="spec-val">Hasta 30% Off</span>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Validez</span>
-                    <span class="spec-value">Todo el día</span>
+                <div class="spec-unit">
+                    <span class="spec-key">Disponibilidad</span>
+                    <span class="spec-val">Todo el día</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SUCURSALES / UBICACIONES -->
-    <section id="sucursales" class="section-container">
-        <div class="section-header">
-            <h2 class="section-title">Nuestras Sucursales</h2>
-            <span style="color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">Tecate, Baja California</span>
-        </div>
-        
-        <div class="grid-branches">
-            <div class="branch-box">
+    <!-- SUCURSALES -->
+    <section id="sucursales" class="branches-container">
+        <h2 class="section-title">Nuestras Sucursales</h2>
+        <div class="branches-grid">
+            <div class="branch-card">
                 <h3>Sucursal Centro</h3>
-                <div class="branch-info-row">
+                <div class="branch-row">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Av. Miguel Hidalgo #296, frente a Plaza Las Ventas</span>
                 </div>
-                <div class="branch-info-row">
+                <div class="branch-row">
                     <i class="fas fa-phone"></i>
                     <span>Tel: 665 521 0502</span>
                 </div>
-                <a href="https://wa.me/526651334590" target="_blank" class="btn-action btn-whatsapp-action" style="margin-top: 20px; width: 100%; justify-content: center; font-size: 12px; padding: 12px;">
+                <a href="https://wa.me/526651334590" target="_blank" class="action-btn btn-wa" style="margin-top: 20px; width: 100%; justify-content: center; font-size: 11px; padding: 12px;">
                     <i class="fab fa-whatsapp"></i> Contactar Centro
                 </a>
             </div>
 
-            <div class="branch-box">
+            <div class="branch-card">
                 <h3>Sucursal Pedregal</h3>
-                <div class="branch-info-row">
+                <div class="branch-row">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Av. Nuevo León, Col. El Pedregal</span>
                 </div>
-                <div class="branch-info-row">
+                <div class="branch-row">
                     <i class="fas fa-phone"></i>
                     <span>Tel: 665 100 0510</span>
                 </div>
-                <a href="https://wa.me/526651427079" target="_blank" class="btn-action btn-whatsapp-action" style="margin-top: 20px; width: 100%; justify-content: center; font-size: 12px; padding: 12px;">
+                <a href="https://wa.me/526651427079" target="_blank" class="action-btn btn-wa" style="margin-top: 20px; width: 100%; justify-content: center; font-size: 11px; padding: 12px;">
                     <i class="fab fa-whatsapp"></i> Contactar Pedregal
                 </a>
             </div>
