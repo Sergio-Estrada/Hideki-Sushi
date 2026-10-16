@@ -1,23 +1,115 @@
-<section class="pin-section relative h-screen overflow-hidden bg-black text-white">
-  <!-- Capas de contenido / pasos -->
-  <div class="step absolute inset-0 flex items-center justify-between p-12 opacity-100 transition-opacity">
-    <div class="max-w-xl">
-      <h2 class="text-5xl font-bold">We start with the frame.</h2>
-      <p class="mt-4 text-gray-400">Doublesl, steel-plate, and a shear plan that survives the ridge wind.</p>
-    </div>
-    <!-- Video o Imagen de fondo/lateral -->
-    <div class="w-1/2 h-full">
-      <video src="video1.mp4" autoplay loop muted class="w-full h-full object-cover"></video>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hideki Sushi | El mejor sabor en Tecate</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-  <div class="step absolute inset-0 flex items-center justify-between p-12 opacity-0 transition-opacity">
-    <div class="max-w-xl">
-      <h2 class="text-5xl font-bold">We close it in.</h2>
-      <p class="mt-4 text-gray-400">Roof, doors, glazing — the weather-tide in southern days.</p>
-    </div>
-    <div class="w-1/2 h-full">
-      <video src="video2.mp4" autoplay loop muted class="w-full h-full object-cover"></video>
-    </div>
-  </div>
-</section>
+    <!-- Header / Navegación -->
+    <header>
+        <div class="logo">
+            <h1>HIDEKI <span>SUSHI</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#promos">Promociones</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#sucursales">Sucursales</a></li>
+                <li><a href="#contacto" class="btn-pedido">Pedir Ahora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>El antojo perfecto en Tecate</h2>
+            <p>Disfruta de nuestros deliciosos rollos, pizzas, boneless y mucho más hasta la puerta de tu hogar.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn-primary">Ver Menú</a>
+                <a href="https://wa.me/526651334590" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Promociones -->
+    <section id="promos" class="promos">
+        <h2>🔥 Promociones Imperdibles 🔥</h2>
+        <div class="promo-grid">
+            <div class="promo-card">
+                <h3>Pack Familiar</h3>
+                <p class="price">3 Rollos por $299</p>
+                <p>¡Disfruta de tus favoritos al mejor precio!</p>
+            </div>
+            <div class="promo-card highlight">
+                <h3>Dúo Perfecto</h3>
+                <p class="price">1 Rollo + 1 Pizza por $249</p>
+                <p>Lo mejor de dos mundos en un solo combo.</p>
+            </div>
+            <div class="promo-card">
+                <h3>Antojo Clásico</h3>
+                <p class="price">2 Rollos por $249</p>
+                <p>Ideal para compartir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Menú -->
+    <section id="menu" class="menu">
+        <h2>Nuestro Menú</h2>
+        <div class="menu-container">
+            <div class="menu-category">
+                <i class="fas fa-utensils"></i>
+                <h3>Sushi & Rollos</h3>
+                <p>Variedad de rollos empanizados, naturales y de autor con ingredientes frescos.</p>
+            </div>
+            <div class="menu-category">
+                <i class="fas fa-pizza-slice"></i>
+                <h3>Pizzas & Snacks</h3>
+                <p>Pizzas artesanales, boneless bañados en salsa búfalo, BBQ o mango habanero, y papas.</p>
+            </div>
+            <div class="menu-category">
+                <i class="fas fa-bowl-food"></i>
+                <h3>Especialidades</h3>
+                <p>Teriyakis, arroces especiales, sopas ramen y bebidas de la casa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sucursales -->
+    <section id="sucursales" class="sucursales">
+        <h2>Nuestras Sucursales en Tecate, B.C.</h2>
+        <div class="sucursal-grid">
+            <div class="sucursal-card">
+                <h3>Sucursal Centro</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Miguel Hidalgo #296, frente a Plaza Las Ventas</p>
+                <p><i class="fas fa-phone"></i> Tel: 665 521 0502</p>
+                <a href="https://wa.me/526651334590" target="_blank" class="btn-sucursal">WhatsApp Centro</a>
+            </div>
+            <div class="sucursal-card">
+                <h3>Sucursal Pedregal</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Nuevo León, Col. El Pedregal</p>
+                <p><i class="fas fa-phone"></i> Tel: 665 100 0510</p>
+                <a href="https://wa.me/526651427079" target="_blank" class="btn-sucursal">WhatsApp Pedregal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <p>&copy; 2026 Hideki Sushi. Todos los derechos reservados.</p>
+        <p>Horario: Lunes a Domingo de 10:00 a.m. a 9:00 p.m.</p>
+    </footer>
+
+</body>
+</html>
