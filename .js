@@ -1,16 +1,40 @@
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('header');
+    const navUl = document.querySelector('nav ul');
+    
+    // 1. Efecto de cambio de opacidad/fondo en el header al hacer scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+            header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.5)';
+        } else {
+            header.style.backgroundColor = '#1a1a1a';
+            header.style.boxShadow = 'none';
+        }
+    });
 
-let tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".pin-section",
-    start: "top top",
-    end: "+=3000", // Controla qué tan largo es el scroll para esta sección
-    pin: true,     // Mantiene la sección fija mientras ocurre la animación
-    scrub: true,   // Sincroniza la animación directamente con el movimiento del scroll
-    markers: false // Ponlo en true si necesitas depurar los puntos de inicio/fin
-  }
+    // 2. Desplazamiento suave para los enlaces del menú
+    const links = document.querySelectorAll('nav a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Permitir abrir enlaces externos o de WhatsApp con normalidad
+            if(!this.getAttribute('href').startsWith('#')) return;
+            
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if(targetElement) {
+                const headerHeight = header.offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
-
-// Animación para transicionar entre los pasos
-tl.to(".step:nth-child(1)", { opacity: 0, duration: 1 })
-  .fromTo(".step:nth-child(2)", { opacity: 0 }, { opacity: 1, duration: 1 });
