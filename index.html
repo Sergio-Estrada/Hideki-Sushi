@@ -3,318 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hideki Sushi | El mejor sabor en Tecate</title>
+    <title>Hideki Sushi | Experiencia Gastronómica</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <!-- FontAwesome para Íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Estilos CSS Integrados -->
     <style>
-        /* Estilos generales */
+        :root {
+            --bg-color: #0b0b0b;
+            --surface-color: #141414;
+            --accent-red: #d90429;
+            --accent-gold: #ffd166;
+            --text-main: #f8f9fa;
+            --text-muted: #a0a0a0;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         html {
             scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-main);
         }
 
         body {
-            background-color: #121212;
-            color: #f1f1f1;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header y Navegación */
+        /* Header flotante minimalista */
         header {
-            background-color: #1a1a1a;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
+            padding: 25px 5%;
+            background: rgba(11, 11, 11, 0.85);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 2px solid #d90429;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .logo h1 {
-            font-size: 24px;
-            color: #fff;
+            font-size: 20px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            color: #fff;
         }
 
         .logo span {
-            color: #d90429;
+            color: var(--accent-red);
         }
 
         nav ul {
             list-style: none;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #fff;
+            color: var(--text-muted);
+            font-size: 14px;
             font-weight: 400;
-            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            color: #d90429;
+        nav ul li a:hover, nav ul li a.active {
+            color: #fff;
         }
 
-        .btn-pedido {
-            background-color: #d90429;
+        .btn-top-order {
+            background-color: var(--accent-red) !important;
+            color: #fff !important;
             padding: 10px 20px;
-            border-radius: 5px;
-            color: white !important;
-            font-weight: 600;
-            transition: background 0.3s;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: transform 0.2s ease, background-color 0.2s ease !important;
         }
 
-        .btn-pedido:hover {
-            background-color: #b00020;
+        .btn-top-order:hover {
+            transform: scale(1.05);
+            background-color: #ef233c !important;
         }
 
-        /* Hero Section */
-        .hero {
+        /* Secciones cinemáticas tipo Storytelling */
+        .cinematic-section {
             min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            position: relative;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 60px 20px;
+            padding: 0 10%;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .hero-content h2 {
-            font-size: 42px;
+        .cinematic-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            filter: brightness(0.45);
+            transform: scale(1.05);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cinematic-section:hover .cinematic-bg {
+            transform: scale(1);
+        }
+
+        .cinematic-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(11,11,11,0.95) 20%, rgba(11,11,11,0.4) 80%);
+            z-index: 2;
+        }
+
+        .cinematic-content {
+            position: relative;
+            z-index: 3;
+            max-width: 650px;
+        }
+
+        .step-indicator {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
             margin-bottom: 15px;
-            color: #fff;
+            font-weight: 600;
+        }
+
+        .cinematic-content h2 {
+            font-size: clamp(36px, 5vw, 64px);
+            line-height: 1.1;
             font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 25px;
-            color: #ccc;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .cinematic-content h2 span {
+            color: var(--accent-red);
         }
 
-        .hero-buttons {
+        .cinematic-content p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .action-group {
             display: flex;
             gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
-        .btn-primary, .btn-whatsapp {
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
+        .btn-cinematic {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            padding: 14px 28px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
         }
 
-        .btn-primary {
-            background-color: transparent;
-            border: 2px solid #fff;
+        .btn-cinematic:hover {
+            background: var(--accent-red);
             color: #fff;
         }
 
-        .btn-primary:hover {
-            background-color: #fff;
-            color: #121212;
-        }
-
-        .btn-whatsapp {
-            background-color: #25d366;
+        .btn-whatsapp-cine {
+            background: #25d366;
             color: #fff;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #1eb954;
+        .btn-whatsapp-cine:hover {
+            background: #1eb954;
+            color: #fff;
         }
 
-        /* Promociones */
-        .promos {
-            padding: 80px 5%;
-            text-align: center;
-            background-color: #181818;
+        /* Sección de sucursales interactiva */
+        .branches-section {
+            padding: 120px 10%;
+            background-color: var(--surface-color);
         }
 
-        .promos h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
-            color: #ffd166;
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
         }
 
-        .promo-grid {
+        .branches-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .promo-card {
-            background-color: #222;
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            transition: transform 0.3s;
+        .branch-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, transform 0.3s ease;
         }
 
-        .promo-card.highlight {
-            border-color: #d90429;
-            background-color: #2a1215;
-        }
-
-        .promo-card:hover {
+        .branch-card:hover {
+            border-color: var(--accent-red);
             transform: translateY(-5px);
         }
 
-        .promo-card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .promo-card .price {
+        .branch-card h3 {
             font-size: 24px;
-            color: #d90429;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        /* Menú */
-        .menu {
-            padding: 80px 5%;
-            text-align: center;
-        }
-
-        .menu h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
-        }
-
-        .menu-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .menu-category {
-            background-color: #1a1a1a;
-            padding: 40px 20px;
-            border-radius: 10px;
-            border-bottom: 4px solid #d90429;
-        }
-
-        .menu-category i {
-            font-size: 40px;
-            color: #d90429;
             margin-bottom: 20px;
+            color: var(--accent-gold);
         }
 
-        .menu-category h3 {
+        .branch-card p {
+            color: var(--text-muted);
             margin-bottom: 15px;
-            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
         }
 
-        /* Sucursales */
-        .sucursales {
-            padding: 80px 5%;
-            background-color: #181818;
-            text-align: center;
+        .branch-card p i {
+            color: var(--accent-red);
         }
 
-        .sucursales h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
-        }
-
-        .sucursal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .sucursal-card {
-            background-color: #222;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: left;
-            border: 1px solid #333;
-        }
-
-        .sucursal-card h3 {
-            color: #ffd166;
-            margin-bottom: 15px;
-        }
-
-        .sucursal-card p {
-            margin-bottom: 10px;
-            color: #ccc;
-        }
-
-        .btn-sucursal {
-            display: inline-block;
-            margin-top: 15px;
-            background-color: #25d366;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Footer */
+        /* Footer minimalista */
         footer {
-            background-color: #0d0d0d;
-            text-align: center;
-            padding: 30px;
-            color: #777;
+            padding: 50px 10%;
+            background: #080808;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
             font-size: 14px;
-            border-top: 1px solid #222;
         }
 
-        /* Adaptabilidad móvil */
+        /* Responsive */
         @media (max-width: 768px) {
-            header {
+            nav {
+                display: none;
+            }
+            .cinematic-section {
+                padding: 120px 6% 60px 6%;
+            }
+            footer {
                 flex-direction: column;
-                gap: 15px;
-            }
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero-content h2 {
-                font-size: 32px;
+                gap: 20px;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navegación -->
+    <!-- Header -->
     <header>
         <div class="logo">
             <h1>HIDEKI <span>SUSHI</span></h1>
@@ -325,92 +301,85 @@
                 <li><a href="#promos">Promociones</a></li>
                 <li><a href="#menu">Menú</a></li>
                 <li><a href="#sucursales">Sucursales</a></li>
-                <li><a href="https://wa.me/526651334590" target="_blank" class="btn-pedido">Pedir Ahora</a></li>
+                <li><a href="https://wa.me/526651334590" target="_blank" class="btn-top-order">Pedir Ahora</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Sección Hero -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h2>El antojo perfecto en Tecate</h2>
-            <p>Disfruta de nuestros deliciosos rollos, pizzas, boneless y mucho más hasta la puerta de tu hogar.</p>
-            <div class="hero-buttons">
-                <a href="#menu" class="btn-primary">Ver Menú</a>
-                <a href="https://wa.me/526651334590" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+    <!-- Sección 1: Hero Cinemático -->
+    <section id="inicio" class="cinematic-section">
+        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1920&q=80" alt="Hideki Sushi Hero" class="cinematic-bg">
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-content">
+            <div class="step-indicator">01 / Experiencia Culinaria</div>
+            <h2>El antojo perfecto <span>en Tecate.</span></h2>
+            <p>Disfruta de nuestros exclusivos rollos de autor, pizzas artesanales y especialidades preparadas con ingredientes frescos de la más alta calidad.</p>
+            <div class="action-group">
+                <a href="#menu" class="btn-cinematic">Explorar Menú</a>
+                <a href="https://wa.me/526651334590" target="_blank" class="btn-cinematic btn-whatsapp-cine">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Promociones -->
-    <section id="promos" class="promos">
-        <h2>🔥 Promociones Imperdibles 🔥</h2>
-        <div class="promo-grid">
-            <div class="promo-card">
-                <h3>Pack Familiar</h3>
-                <p class="price">3 Rollos por $299</p>
-                <p>¡Disfruta de tus favoritos al mejor precio!</p>
-            </div>
-            <div class="promo-card highlight">
-                <h3>Dúo Perfecto</h3>
-                <p class="price">1 Rollo + 1 Pizza por $249</p>
-                <p>Lo mejor de dos mundos en un solo combo.</p>
-            </div>
-            <div class="promo-card">
-                <h3>Antojo Clásico</h3>
-                <p class="price">2 Rollos por $249</p>
-                <p>Ideal para compartir.</p>
+    <!-- Sección 2: Promociones -->
+    <section id="promos" class="cinematic-section" style="background: #101010;">
+        <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=1920&q=80" alt="Promociones Hideki" class="cinematic-bg">
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-content">
+            <div class="step-indicator">02 / Combos & Promociones</div>
+            <h2>Promociones <span>Imperdibles.</span></h2>
+            <p><strong>Pack Familiar:</strong> 3 Rollos seleccionados por $299.<br><strong>Dúo Perfecto:</strong> 1 Rollo + 1 Pizza por $249.</p>
+            <div class="action-group">
+                <a href="https://wa.me/526651334590" target="_blank" class="btn-cinematic btn-whatsapp-cine">
+                    <i class="fab fa-whatsapp"></i> Ordenar Combo
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Menú -->
-    <section id="menu" class="menu">
-        <h2>Nuestro Menú</h2>
-        <div class="menu-container">
-            <div class="menu-category">
-                <i class="fas fa-utensils"></i>
-                <h3>Sushi & Rollos</h3>
-                <p>Variedad de rollos empanizados, naturales y de autor con ingredientes frescos.</p>
-            </div>
-            <div class="menu-category">
-                <i class="fas fa-pizza-slice"></i>
-                <h3>Pizzas & Snacks</h3>
-                <p>Pizzas artesanales, boneless bañados en salsa búfalo, BBQ o mango habanero, y papas.</p>
-            </div>
-            <div class="menu-category">
-                <i class="fas fa-bowl-food"></i>
-                <h3>Especialidades</h3>
-                <p>Teriyakis, arroces especiales, sopas ramen y bebidas de la casa.</p>
+    <!-- Sección 3: Menú Interactivo -->
+    <section id="menu" class="cinematic-section">
+        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1920&q=80" alt="Menu Hideki" class="cinematic-bg">
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-content">
+            <div class="step-indicator">03 / Nuestra Carta</div>
+            <h2>Calidad y Sabor <span>Excepcional.</span></h2>
+            <p>Desde rollos empanizados y naturales hasta alitas, boneless y sopas ramen con recetas originales de la casa.</p>
+            <div class="action-group">
+                <a href="https://wa.me/526651334590" target="_blank" class="btn-cinematic">Ver Carta Completa</a>
             </div>
         </div>
     </section>
 
-    <!-- Sucursales -->
-    <section id="sucursales" class="sucursales">
-        <h2>Nuestras Sucursales en Tecate, B.C.</h2>
-        <div class="sucursal-grid">
-            <div class="sucursal-card">
+    <!-- Sección de Sucursales -->
+    <section id="sucursales" class="branches-section">
+        <h2 class="section-title">Nuestras Sucursales en Tecate</h2>
+        <div class="branches-grid">
+            <div class="branch-card">
                 <h3>Sucursal Centro</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Av. Miguel Hidalgo #296, frente a Plaza Las Ventas</p>
                 <p><i class="fas fa-phone"></i> Tel: 665 521 0502</p>
-                <a href="https://wa.me/526651334590" target="_blank" class="btn-sucursal"><i class="fab fa-whatsapp"></i> WhatsApp Centro</a>
+                <a href="https://wa.me/526651334590" target="_blank" class="btn-cinematic btn-whatsapp-cine" style="margin-top: 15px; font-size: 13px; padding: 10px 20px;">
+                    <i class="fab fa-whatsapp"></i> Contactar Centro
+                </a>
             </div>
-            <div class="sucursal-card">
+            <div class="branch-card">
                 <h3>Sucursal Pedregal</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Av. Nuevo León, Col. El Pedregal</p>
                 <p><i class="fas fa-phone"></i> Tel: 665 100 0510</p>
-                <a href="https://wa.me/526651427079" target="_blank" class="btn-sucursal"><i class="fab fa-whatsapp"></i> WhatsApp Pedregal</a>
+                <a href="https://wa.me/526651427079" target="_blank" class="btn-cinematic btn-whatsapp-cine" style="margin-top: 15px; font-size: 13px; padding: 10px 20px;">
+                    <i class="fab fa-whatsapp"></i> Contactar Pedregal
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contacto">
+    <footer>
         <p>&copy; 2026 Hideki Sushi. Todos los derechos reservados.</p>
-        <p>Horario: Lunes a Domingo de 10:00 a.m. a 9:00 p.m.</p>
+        <p>Lunes a Domingo: 10:00 a.m. - 9:00 p.m.</p>
     </footer>
 
 </body>
